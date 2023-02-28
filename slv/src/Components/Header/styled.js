@@ -14,7 +14,7 @@ export const AreaHeader = styled.div`
   .logo {
     flex: 1;
         img {
-         width: 56px;
+         width: 70px;
     }
   }
 

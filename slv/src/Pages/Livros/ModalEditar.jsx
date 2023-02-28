@@ -19,7 +19,7 @@ const ModalEditar = ({ data, isModalOpen, closeModal, setLivroEditar }) => {
   };
 
   const onOk = () => {
-    handelSubmit();
+    handleSubmit();
     setLivroEditar(null);
     closeModal();
   };
@@ -29,7 +29,7 @@ const ModalEditar = ({ data, isModalOpen, closeModal, setLivroEditar }) => {
     setLivroEditar();
   };
 
-  const handelSubmit = async () => {
+  const handleSubmit = async () => {
     await axios
       .put(`http://localhost:5000/book/${data._id}`, livro)
       .then((response) => console.log("Atualizado com sucesso"))

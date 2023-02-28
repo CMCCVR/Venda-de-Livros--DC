@@ -3,18 +3,30 @@ import { ProductArea } from "../Livros/styled";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BsFillCartPlusFill, BsFillCartCheckFill } from "react-icons/bs";
-// import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import styled from "styled-components";
 import { getItem, setItem } from "../../Services/LocalStorege";
-// import { Link } from "react-router-dom";
 import ModalEditar from "./ModalEditar";
 
 const Livros = () => {
-  const [livros, setLivros] = useState([])
-
+  const [livros, setLivros] = useState([]);
   const [livroEditar, setLivroEditar] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [cart, setCart] = useState(getItem("carrinho01") || []);
+
+  const TrashIcon = styled(FaTrash)`
+    color: red;
+    cursor: pointer;
+    margin-bottom: 30px;
+      font-size: 50px;     
+  `;
+  const EditIcon = styled(FaEdit)` 
+   color: #3c0080;  
+    cursor: pointer;
+    margin-bottom: 30px;
+      font-size: 50px;
+  `;
 
   useEffect(() => {
     carregarLivros();
@@ -39,8 +51,9 @@ const Livros = () => {
     }
   };
 
-const excluir = (id) => {
+  const excluir = (id) => {
     axios.delete("http://localhost:5000/book/" + id).then((response) => {
+      alert("Livro excluído com sucesso!");
       carregarLivros();
     });
   };
@@ -76,21 +89,19 @@ const excluir = (id) => {
                 <BsFillCartPlusFill />
               )}
             </button>
-            {/* <FaTrash > */}
-            <button1 onClick={() => excluir(livro._id)}>Excluir</button1>
-            {/* </FaTrash> */}
-            {/* <FaEdit> */}
-            <button2 onClick={() => editarLivro(livro)}>Editar</button2>
-            {/* </FaEdit> */}
+            <TrashIcon onClick={() => excluir(livro._id)}></TrashIcon>
+            <EditIcon onClick={() => editarLivro(livro)}></EditIcon>
           </div>
         ))}
       </ProductArea>
-     {livroEditar && <ModalEditar
-        data={livroEditar}
-        isModalOpen={isModalOpen}
-        closeModal={closeModal}
-        setLivroEditar={setLivroEditar}
-      />}
+      {livroEditar && (
+        <ModalEditar
+          data={livroEditar}
+          isModalOpen={isModalOpen}
+          closeModal={closeModal}
+          setLivroEditar={setLivroEditar}
+        />
+      )}
     </>
   );
 };

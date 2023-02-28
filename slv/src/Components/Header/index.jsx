@@ -8,7 +8,7 @@ function Header() {
     <AreaHeader> 
       <div className="container">
         <div className="logo">
-              <img alt="logo" src="../../../logo-text.png" />
+              <img alt="logo" src="https://img.freepik.com/vetores-gratis/livros-stack-realistic_1284-4735.jpg" />
         </div>
         
         <nav>

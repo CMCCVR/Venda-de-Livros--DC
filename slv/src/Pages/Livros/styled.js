@@ -12,7 +12,7 @@ export const ProductArea = styled.div`
   div {
     height: auto;
     width: 330px;
-    border: 10px solid rgb(194, 193, 193);
+    border: 1px solid rgb(194, 193, 193);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -25,27 +25,8 @@ export const ProductArea = styled.div`
       background: transparent;
       border: none;
       color: teal;
-    }
-    button1 {
-      margin-bottom: 30px;
-      padding: 12px;
-      border-radius: 20px;
-      transition: 0.3s;
-      font-size: 30px;
-      background: orange;
-      color: blueviolet;
       cursor: pointer;
-    }
-    button2 {
-      margin-bottom: 1px;
-      padding: 12px;
-      border-radius: 20px;
-      width: 100px;
-      transition: 0.3s;
-      font-size: 30px;
-      background: yellow;
-      color: blueviolet;
-      cursor: pointer;
-    }
+    }  
+
   }
 `;
