@@ -52,10 +52,12 @@ const Livros = () => {
   };
 
   const excluir = (id) => {
+     if (window.confirm("Tem certeza que deseja excluir esse item?")){
     axios.delete("http://localhost:5000/book/" + id).then((response) => {
       alert("Livro excluído com sucesso!");
       carregarLivros();
     });
+  }
   };
 
   const editarLivro = (livro) => {

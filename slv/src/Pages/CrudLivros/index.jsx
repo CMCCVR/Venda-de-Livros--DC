@@ -26,18 +26,19 @@ const CrudLivros = () => {
   useEffect(() => {
     if (!selectedFile) {
       setPreview(undefined);
-      return;}
+      return;
+    }
 
     const objectUrl = URL.createObjectURL(selectedFile);
-       setPreview(objectUrl);
+    setPreview(objectUrl);
 
     return () => URL.revokeObjectURL(objectUrl);
-       }, [selectedFile]);
+  }, [selectedFile]);
 
-    const onSelectFile = async (e) => {
-     if (!e.target.files || e.target.files.length === 0) {
-       setSelectedFile(undefined);
-       return;
+  const onSelectFile = async (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
     }
 
     var reader = new FileReader();
@@ -91,8 +92,8 @@ const CrudLivros = () => {
               }
               type="number"
             ></input>
-            {selectedFile && <img src={preview} alt=" "/>}
-            <input type="file" onChange={onSelectFile} />
+            {selectedFile && <img src={preview} alt=" " />}
+            <input type="file" accept="image/*" onChange={onSelectFile} />
           </div>
           <BtnDefaut onClick={salvar}>Salvar</BtnDefaut>
         </form>
